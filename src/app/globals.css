@@ -1,42 +1,73 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-600;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-card-950 via-card-900 to-card-800 text-card-50 font-poker;
+    @apply min-h-screen;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .poker-card {
+    @apply bg-gradient-to-br from-card-800 to-card-900 border-2 border-poker-500/20 rounded-xl shadow-2xl;
+    @apply backdrop-blur-sm;
+  }
+  
+  .poker-chip {
+    @apply rounded-full border-2 border-white/20 shadow-lg;
+    @apply flex items-center justify-center font-bold text-white;
+  }
+  
+  .poker-chip-red {
+    @apply bg-gradient-to-br from-red-500 to-red-700;
+  }
+  
+  .poker-chip-blue {
+    @apply bg-gradient-to-br from-blue-500 to-blue-700;
+  }
+  
+  .poker-chip-green {
+    @apply bg-gradient-to-br from-green-500 to-green-700;
+  }
+  
+  .poker-chip-black {
+    @apply bg-gradient-to-br from-gray-800 to-gray-900;
+  }
+  
+  .poker-chip-white {
+    @apply bg-gradient-to-br from-gray-100 to-gray-300 text-gray-800;
+  }
+  
+  .poker-button {
+    @apply bg-gradient-to-r from-poker-600 to-poker-700 hover:from-poker-700 hover:to-poker-800;
+    @apply text-white font-semibold px-6 py-3 rounded-lg shadow-lg;
+    @apply transition-all duration-200 transform hover:scale-105 active:scale-95;
+    @apply border border-poker-500/30;
+  }
+  
+  .poker-input {
+    @apply bg-card-800/50 border border-poker-500/30 rounded-lg px-4 py-3;
+    @apply text-card-50 placeholder-card-400 focus:border-poker-500 focus:ring-2 focus:ring-poker-500/20;
+    @apply backdrop-blur-sm transition-all duration-200;
+  }
+  
+  .poker-textarea {
+    @apply poker-input resize-none;
+  }
+  
+  .poker-glow {
+    @apply shadow-lg shadow-poker-500/25;
+  }
+  
+  .poker-glow-strong {
+    @apply shadow-2xl shadow-poker-500/40;
   }
 }
